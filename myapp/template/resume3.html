@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            color: #333;
+        }
+
+        .resume-container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #333;
+            background: #fafafa;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        section h2 {
+            border-bottom: 1px solid #333;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .resume-container {
+                padding: 10px;
+            }
+        }
+
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div id="resume-content" class="resume-container">
+        <header>
+            <h1 class="editable" contenteditable="true">Emily Johnson</h1>
+            <p class="editable" contenteditable="true">emily.johnson@example.com | (123) 456-7890 | LinkedIn: emilyjohnson</p>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">Motivated IT student specializing in cybersecurity, with a strong background in network security and ethical hacking.</p>
+        </section>
+        <section class="education">
+            <h2>Education</h2>
+            <p class="editable" contenteditable="true">Bachelor of Science in Cybersecurity</p>
+            <p class="editable" contenteditable="true">Example University, 2024</p>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Programming: Python, C, Bash</li>
+                <li class="editable" contenteditable="true">Security Tools: Wireshark, Metasploit, Nmap</li>
+                <li class="editable" contenteditable="true">Web: HTML, CSS, JavaScript</li>
+            </ul>
+        </section>
+        <section class="experience">
+            <h2>Experience</h2>
+            <p class="editable" contenteditable="true">Intern at Cyber Defense Solutions</p>
+            <p class="editable" contenteditable="true">Conducted penetration tests and security assessments for clients.</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+</body>
+</html>

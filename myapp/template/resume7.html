@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #e0f7fa;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #00796b;
+        }
+
+        header p {
+            color: #004d40;
+        }
+
+        section h2 {
+            color: #004d40;
+            border-bottom: 2px solid #004d40;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .resume-container {
+                padding: 10px;
+            }
+        }
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="resume-container" id="resume-content">
+        <header>
+            <h1 class="editable" contenteditable="true">Benjamin Carter</h1>
+            <p class="editable" contenteditable="true">benjamin.carter@example.com | (123) 456-7890</p>
+            <p class="editable" contenteditable="true">456 Elm St, Springfield, USA</p>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">Creative IT specialist with extensive experience in network administration and cybersecurity. Passionate about protecting digital assets.</p>
+        </section>
+        <section class="personal-details">
+            <h2>Personal Details</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Date of Birth: March 15, 1998</li>
+                <li class="editable" contenteditable="true">Nationality: American</li>
+                <li class="editable" contenteditable="true">Languages: English, French</li>
+            </ul>
+        </section>
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            <p class="editable" contenteditable="true"><strong>Network Administrator</strong> at SecureNet (2020-Present)</p>
+            <p class="editable" contenteditable="true">Managed and secured network infrastructure, reducing incidents by 30%.</p>
+        </section>
+        <section class="projects">
+            <h2>Projects</h2>
+            <p class="editable" contenteditable="true"><strong>Cybersecurity Training Program</strong></p>
+            <p class="editable" contenteditable="true">Designed a comprehensive training program to educate employees on best security practices.</p>
+        </section>
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <p class="editable" contenteditable="true">Email: benjamin.carter@example.com</p>
+            <p class="editable" contenteditable="true">Phone: (123) 456-7890</p>
+            <p class="editable" contenteditable="true">Location: 456 Elm St, Springfield, USA</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+</body>
+</html>

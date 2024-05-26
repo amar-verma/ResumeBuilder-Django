@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #5a5a5a;
+        }
+
+        header p {
+            color: #7a7a7a;
+        }
+
+        section h2 {
+            color: #5a5a5a;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .resume-container {
+                padding: 10px;
+            }
+        }
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="resume-container" id="resume-content">
+        <header>
+            <h1 class="editable" contenteditable="true">Chloe Adams</h1>
+            <p class="editable" contenteditable="true">chloe.adams@example.com | (123) 456-7890</p>
+            <p class="editable" contenteditable="true">789 Oak St, Springfield, USA</p>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">Dedicated IT professional with a focus on database management and cloud computing. Excels in optimizing data storage solutions.</p>
+        </section>
+        <section class="personal-details">
+            <h2>Personal Details</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Date of Birth: July 22, 1999</li>
+                <li class="editable" contenteditable="true">Nationality: American</li>
+                <li class="editable" contenteditable="true">Languages: English, German</li>
+            </ul>
+        </section>
+        <section class="work-experience">
+            <h2>Work Experience</h2>
+            <p class="editable" contenteditable="true"><strong>Database Administrator</strong> at Data Systems Inc. (2021-Present)</p>
+            <p class="editable" contenteditable="true">Optimized database performance and ensured data integrity across multiple platforms.</p>
+        </section>
+        <section class="projects">
+            <h2>Projects</h2>
+            <p class="editable" contenteditable="true"><strong>Cloud Migration Project</strong></p>
+            <p class="editable" contenteditable="true">Led the migration of company databases to AWS, improving scalability and reliability.</p>
+        </section>
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <p class="editable" contenteditable="true">Email: chloe.adams@example.com</p>
+            <p class="editable" contenteditable="true">Phone: (123) 456-7890</p>
+            <p class="editable" contenteditable="true">Location: 789 Oak St, Springfield, USA</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+</body>
+</html>

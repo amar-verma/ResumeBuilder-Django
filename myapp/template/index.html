@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(43, 39, 39);
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 100%;
+        }
+        .image-container a {
+            flex: 1 1 calc(25% - 20px); /* Adjust width and spacing for four images per row */
+            max-width: calc(25% - 20px);
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        .image-container img {
+            height: 70vh;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px){
+            .image-container a {
+            flex: auto; /* Adjust width and spacing for four images per row */
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome!
+        <span class="typer" id="main" data-words="{{user}}" data-delay="100" data-deleteDelay="1000"></span>
+        <span class="cursor" data-owner="main"></span>
+    </h1>
+    <p>Here, You can awesome resume format.</p> 
+    <p>do you want to <a href="{% url 'user_logout' %}" style="color: red;">logout</a>?</p>
+    <div class="image-container">
+        <a href="{% url 'resume1' %}"><img src="{% static 'img/res1.png' %}" alt=""></a>
+        <a href="{% url 'resume2' %}"><img src="{% static 'img/res2.png' %}" alt=""></a>
+        <a href="{% url 'resume3' %}"><img src="{% static 'img/res3.png' %}" alt=""></a>
+        <a href="{% url 'resume4' %}"><img src="{% static 'img/res4.png' %}" alt=""></a>
+        <a href="{% url 'resume5' %}"><img src="{% static 'img/res5.png' %}" alt=""></a>
+        <a href="{% url 'resume6' %}"><img src="{% static 'img/res6.png' %}" alt=""></a>
+        <a href="{% url 'resume7' %}"><img src="{% static 'img/res7.png' %}" alt=""></a>
+        <a href="{% url 'resume8' %}"><img src="{% static 'img/res8.png' %}" alt=""></a>
+        <a href="{% url 'resume9' %}"><img src="{% static 'img/res9.png' %}" alt=""></a>
+        <a href="{% url 'resume10' %}"><img src="{% static 'img/res10.png' %}" alt=""></a>
+        <a href="{% url 'resume11' %}"><img src="{% static 'img/res11.png' %}" alt=""></a>
+        <a href="{% url 'resume12' %}"><img src="{% static 'img/res12.png' %}" alt=""></a>
+        <a href="{% url 'resume13' %}"><img src="{% static 'img/res13.png' %}" alt=""></a>
+        <a href="{% url 'resume14' %}"><img src="{% static 'img/res14.png' %}" alt=""></a>
+        <a href="{% url 'resume15' %}"><img src="{% static 'img/res15.png' %}" alt=""></a>
+    </div>
+    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+</body>
+</html>

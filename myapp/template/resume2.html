@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #e0f7fa;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #00838f;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .name h1 {
+            margin: 0;
+            color: #00838f;
+        }
+
+        .links p {
+            margin: 0;
+            color: #006064;
+        }
+
+        section h2 {
+            color: #00838f;
+            border-bottom: 1px solid #e0f7fa;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div id="resume-content" class="resume-container">
+        <header>
+            <div class="name">
+                <h1 class="editable" contenteditable="true">Jane Smith</h1>
+                <p class="editable" contenteditable="true">jane.smith@example.com | (123) 456-7890</p>
+            </div>
+            <div class="links">
+                <p class="editable" contenteditable="true">LinkedIn: janesmith | GitHub: janesmith</p>
+            </div>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">Innovative IT student with experience in full-stack development and a keen interest in data science and artificial intelligence.</p>
+        </section>
+        <section class="education">
+            <h2>Education</h2>
+            <p class="editable" contenteditable="true">Bachelor of Science in Computer Science</p>
+            <p class="editable" contenteditable="true">Example University, 2024</p>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Languages: JavaScript, Python, Ruby</li>
+                <li class="editable" contenteditable="true">Frameworks: React, Node.js, Django</li>
+                <li class="editable" contenteditable="true">Tools: Git, Docker, Kubernetes</li>
+            </ul>
+        </section>
+        <section class="experience">
+            <h2>Experience</h2>
+            <p class="editable" contenteditable="true">Software Developer Intern at Innovative Solutions</p>
+            <p class="editable" contenteditable="true">Worked on a team to develop a machine learning model for predictive analytics.</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        section h2 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .resume-container {
+                padding: 10px;
+            }
+        }
+
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="resume-container" id="resume-content">
+        <header>
+            <h1 class="editable" contenteditable="true" data-key="name">John Doe</h1>
+            <p class="editable" contenteditable="true" data-key="contact_info">john.doe@example.com | (123) 456-7890 | LinkedIn: johndoe</p>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true" data-key="summary">Detail-oriented IT student with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.</p>
+        </section>
+        <section class="education">
+            <h2>Education</h2>
+            <p class="editable" contenteditable="true" data-key="education">Bachelor of Science in Information Technology</p>
+            <p class="editable" contenteditable="true" data-key="university">University of Example, 2024</p>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li class="editable" contenteditable="true" data-key="skill_1">Programming Languages: Java, C++, Python</li>
+                <li class="editable" contenteditable="true" data-key="skill_2">Web Development: HTML, CSS, JavaScript</li>
+                <li class="editable" contenteditable="true" data-key="skill_3">Database Management: MySQL, MongoDB</li>
+            </ul>
+        </section>
+        <section class="experience">
+            <h2>Experience</h2>
+            <p class="editable" contenteditable="true" data-key="experience">Intern at Tech Company</p>
+            <p class="editable" contenteditable="true" data-key="experience_detail">Developed a web-based application to manage company data efficiently.</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+</body>
+</html>

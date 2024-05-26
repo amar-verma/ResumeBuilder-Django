@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: #fdfdfd;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        header p {
+            color: #555;
+        }
+
+        section h2 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .resume-container {
+                padding: 10px;
+            }
+        }
+
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div id="resume-content" class="resume-container">
+        <header>
+            <h1 class="editable" contenteditable="true">Sarah Williams</h1>
+            <p class="editable" contenteditable="true">sarah.williams@example.com | (123) 456-7890 | LinkedIn: sarahwilliams</p>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">Detail-oriented IT student specializing in data analysis, with strong skills in statistical analysis and data visualization.</p>
+        </section>
+        <section class="education">
+            <h2>Education</h2>
+            <p class="editable" contenteditable="true">Bachelor of Science in Data Science</p>
+            <p class="editable" contenteditable="true">Example University, 2024</p>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Languages: R, Python, SQL</li>
+                <li class="editable" contenteditable="true">Tools: Tableau, PowerBI, Excel</li>
+                <li class="editable" contenteditable="true">Web: HTML, CSS, JavaScript</li>
+            </ul>
+        </section>
+        <section class="experience">
+            <h2>Experience</h2>
+            <p class="editable" contenteditable="true">Data Analyst Intern at Data Corp</p>
+            <p class="editable" contenteditable="true">Analyzed large datasets to identify trends and patterns, and presented findings to stakeholders.</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+</body>
+</html>

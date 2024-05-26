@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeBuilder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding:20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .photo {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #333;
+        }
+
+        header p {
+            color: #555;
+        }
+
+        section h2 {
+            color: #444;
+            border-bottom: 2px solid #feb47b;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        section ul li {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+            .resume-container {
+                padding: 15px;
+            }
+            .photo img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            cursor: text;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="resume-container" id="resume-content">
+        <header>
+            <div class="photo">
+                <img src="{% static 'img/photo.png' %}" alt="Profile Photo" id="profile-photo">
+                <input type="file" id="photo-upload" style="display: none;">
+            </div>
+            <h1 class="editable" contenteditable="true">Emily Davis</h1>
+            <p class="editable" contenteditable="true">emily.davis@example.com | (123) 456-7890</p>
+            <p class="editable" contenteditable="true">456 Cedar St, Springfield, USA</p>
+        </header>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p class="editable" contenteditable="true">Enthusiastic IT professional with experience in web development and digital marketing.</p>
+        </section>
+        <section class="education">
+            <h2>Education</h2>
+            <p class="editable" contenteditable="true"><strong>Bachelor of Science in Computer Science</strong>, University of Springfield (2016-2020)</p>
+        </section>
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Web Development</li>
+                <li class="editable" contenteditable="true">SEO Optimization</li>
+                <li class="editable" contenteditable="true">Digital Marketing</li>
+            </ul>
+        </section>
+        <section class="experience">
+            <h2>Experience</h2>
+            <p class="editable" contenteditable="true"><strong>Web Developer</strong> at WebWorks (2020-Present)</p>
+            <p class="editable" contenteditable="true">Developed responsive websites and optimized them for search engines.</p>
+        </section>
+        <section class="technical-skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li class="editable" contenteditable="true">Programming Languages: HTML, CSS, JavaScript</li>
+                <li class="editable" contenteditable="true">Frameworks: React, Angular</li>
+                <li class="editable" contenteditable="true">SEO Tools: Google Analytics, SEMrush</li>
+            </ul>
+        </section>
+        <section class="interests">
+            <h2>Interests</h2>
+            <p class="editable" contenteditable="true">Web design, blogging, fitness</p>
+        </section>
+        <section class="certificates">
+            <h2>Certificates</h2>
+            <p class="editable" contenteditable="true">Certified Web Developer, FreeCodeCamp</p>
+        </section>
+        <section class="awards">
+            <h2>Awards</h2>
+            <p class="editable" contenteditable="true">Best Web Developer, Tech Awards 2021</p>
+        </section>
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <p class="editable" contenteditable="true">Email: emily.davis@example.com</p>
+            <p class="editable" contenteditable="true">Phone: (123) 456-7890</p>
+            <p class="editable" contenteditable="true">Location: 456 Cedar St, Springfield, USA</p>
+        </section>
+    </div>
+    <div class="resume-container">
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
+    <script src="{% static 'js/resume.js' %}"></script>
+    <script src="{% static 'js/resumeimg.js' %}"></script>
+</body>
+</html>
